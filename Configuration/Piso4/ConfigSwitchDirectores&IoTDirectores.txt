@@ -1,5 +1,5 @@
 !===============
-Config Switch S-Directores&IoTDirectores ============
+Config Switch S-Directores&IoTDirectores check [] ============
 !================
 Configuración General =====================
  
@@ -53,7 +53,7 @@ exit
 
 !2) Asignación de puertos a las VLANs
  
-interface range GigabitEthernet1/0/1-13
+interface range GigabitEthernet1/0/1-14
 description Acceso - Area de Directores
 switchport mode access
 switchport access vlan 90
@@ -70,7 +70,7 @@ exit
 !4) Asignación de la IP de Gestión
 interface vlan 911
 description IP de gestion remota ssh
-ip address 172.18.5.131 255.255.255.192
+ip address 172.18.5.135 255.255.255.192
 no shutdown
 exit
  

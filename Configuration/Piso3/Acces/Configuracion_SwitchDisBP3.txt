@@ -1,5 +1,5 @@
 !===============
-Config Switch S-DisBP3 ============
+Config Switch S-DisBP3 check[] ============
 !================
 Configuración General =====================
  
@@ -52,7 +52,7 @@ no shutdown
 exit 
 
 !2) Asignación de puertos a las VLANs (Modo Acceso)
-interface range GigabitEthernet1/0/2-18
+interface range GigabitEthernet1/0/1-18
 description Puertos de Acceso - Area Disenio B (Nodos y AP)
 switchport mode access
 switchport access vlan 50

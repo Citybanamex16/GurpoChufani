@@ -1,5 +1,5 @@
 !===============
-Config Switch S-CoreP3 ============
+Config Switch S-CoreP3 check[] ============
 !================
 Configuración General =====================
  
@@ -75,16 +75,16 @@ vlan 90
   name Directores
 
 vlan 100
-  name IoTDirectores
+  name Seguridad
 
 vlan 110
-  name Ventas
+  name IoTDirectores
 
 vlan 120
-  name Presupuestos
+  name Ventas
 
 vlan 130
-  name Gestion
+  name Presupuestos
 
 vlan 140
   name ServiciosP3
@@ -134,7 +134,7 @@ no shutdown
 !4) Asignación de la IP de Gestión
 interface vlan 911
   description IP de gestion remota (SSH)
-  ip address 172.18.5.142 255.255.255.192
+  ip address 172.18.5.137 255.255.255.192
   no shutdown
  
 ! Definición del Gateway por defecto para permitir administración fuera de la subred

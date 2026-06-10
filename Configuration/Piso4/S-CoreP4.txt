@@ -1,5 +1,5 @@
 !===============
-Config Switch S-CoreP4 ============
+Config Switch S-CoreP4 check [] ============
 !================
 Configuración General =====================
  
@@ -46,25 +46,25 @@ vtp password tc2006b
 
 !3) Definición de Truncales (Puerto 1/1 hacia el Router / Core)
 interface Gig1/1/1
-description Puerto TRUNK - Enlace de subida hacia Router
+description Puerto TRUNK - Enlace de subida hacia S-CoreP3
 switchport mode trunk
 no shutdown
 exit 
 
 interface Gig1/0/24
-description Puerto TRUNK - Enlace de subida hacia Directores
+description Puerto TRUNK - Enlace de subida hacia Directores&IoTDirectores
 switchport mode trunk
 no shutdown
 exit 
 
 !2) Asignación de puertos a las VLANs (Modo Acceso)
-interface range GigabitEthernet1/0/1-18
+interface range GigabitEthernet1/0/1-17
 description Puertos de Acceso - Area Renders
 switchport mode access
 switchport access vlan 30
 no shutdown
 
-interface range GigabitEthernet1/0/2-18
+interface range GigabitEthernet1/0/18
 description Puertos de Acceso - Area VisitantesP4
 switchport mode access
 switchport access vlan 70
