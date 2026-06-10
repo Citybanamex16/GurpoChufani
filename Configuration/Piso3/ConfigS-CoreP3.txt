@@ -47,7 +47,7 @@ vtp password tc2006b
 
 !1) BD de VLANs
 
-1) Creación de VLANs
+!1) Creación de VLANs
 vlan 10
   name IoTDiseno
 
@@ -64,13 +64,13 @@ vlan 50
   name AreaDisenoB
 
 vlan 60
-  name Visitantes P1
+  name VisitantesP1
 
 vlan 70
-  name Visitantes P4
+  name VisitantesP4
 
 vlan 80
-  name Visitantes P3
+  name VisitantesP3
 
 vlan 90
   name Directores
@@ -88,9 +88,9 @@ vlan 130
   name Gestion
 
 vlan 140
-  name Servicios P3
+  name ServiciosP3
 
-vlan 140
+vlan 150
   name Servidores
 
 

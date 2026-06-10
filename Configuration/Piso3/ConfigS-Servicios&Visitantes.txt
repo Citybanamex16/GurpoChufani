@@ -44,8 +44,14 @@ vtp domain Chufani.com.mx
 vtp mode client
 vtp password tc2006b
 
+!2) Definición de Truncales (Puerto 1/1 hacia el Router / Core)
+interface Gig1/0/24
+description Puerto TRUNK - Enlace de subida hacia S-CoreP3
+switchport mode trunk
+no shutdown
+exit
  
-!2) Asignación de puertos a las VLANs (Modo Acceso)
+!3) Asignación de puertos a las VLANs (Modo Acceso)
 interface range GigabitEthernet1/0/1-14
 description Puertos de Acceso - Segmento de ServiciosP3
 switchport mode access
@@ -58,18 +64,11 @@ switchport mode access
 switchport access vlan 80
 no shutdown
 
- 
-!3) Definición de Truncales (Puerto 1/1 hacia el Router / Core)
-interface Gig1/0/24
-description Puerto TRUNK - Enlace de subida hacia S-CoreP3
-switchport mode trunk
-no shutdown
-exit
 
 !4) Asignación de la IP de Gestión
 interface vlan 911
   description IP de gestion remota (SSH)
-  ip address 172.18.5.131 255.255.255.195
+  ip address 172.18.5.131 255.255.255.192
   no shutdown
  
 ! Definición del Gateway por defecto para permitir administración fuera de la subred
