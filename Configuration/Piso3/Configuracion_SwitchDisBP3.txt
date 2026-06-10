@@ -43,7 +43,14 @@ logging synchronous
 vtp domain Chufani.com.mx
 vtp mode client
 vtp password tc2006b
- 
+
+!3) Definición de Truncales (Puerto 1/1 hacia el Router / Core)
+interface Gig1/1/1
+description Puerto TRUNK - Enlace de subida hacia Router
+switchport mode trunk
+no shutdown
+exit 
+
 !2) Asignación de puertos a las VLANs (Modo Acceso)
 interface range GigabitEthernet1/0/2-18
 description Puertos de Acceso - Area Disenio B (Nodos y AP)
@@ -52,13 +59,6 @@ switchport access vlan 50
 no shutdown
 exit
  
-!3) Definición de Truncales (Puerto 1/1 hacia el Router / Core)
-interface Gig1/1/1
-description Puerto TRUNK - Enlace de subida hacia Router
-switchport mode trunk
-no shutdown
-exit
-
 !4) Asignación de la IP de Gestión
 interface vlan 911
   description IP de gestion remota (SSH)
