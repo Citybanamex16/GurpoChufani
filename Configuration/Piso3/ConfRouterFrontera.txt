@@ -169,102 +169,118 @@ interface G0/0/0
   no shutdown
 
 !============== Configuración del servicio DHCPs ================
+
 ip dhcp excluded-address 172.18.0.126
 ip dhcp pool POOL-IoTDiseno
-  network 172.18.0.0 255.255.255.128
-  default-router 172.18.0.126
-  dns-server 8.8.8.8
+ network 172.18.0.0 255.255.255.128
+ default-router 172.18.0.126
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.0.254
 ip dhcp pool POOL-IoTOficina
-  network 172.18.0.128 255.255.255.128
-  default-router 172.18.0.254
-  dns-server 8.8.8.8
+ network 172.18.0.128 255.255.255.128
+ default-router 172.18.0.254
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.1.126
 ip dhcp pool POOL-Area-Renders
-  network 172.18.1.0 255.255.255.128
-  default-router 172.18.1.126
-  dns-server 8.8.8.8
+ network 172.18.1.0 255.255.255.128
+ default-router 172.18.1.126
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.1.254
 ip dhcp pool POOL-Area-disenoA
-  network 172.18.1.128 255.255.255.128
-  default-router 172.18.1.254
-  dns-server 8.8.8.8
+ network 172.18.1.128 255.255.255.128
+ default-router 172.18.1.254
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.2.126
 ip dhcp pool POOL-Area-disenoB
-  network 172.18.2.0 255.255.255.128
-  default-router 172.18.2.126
-  dns-server 8.8.8.8
+ network 172.18.2.0 255.255.255.128
+ default-router 172.18.2.126
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.2.254
 ip dhcp pool POOL-Area-VisitantesP1
-  network 172.18.2.128 255.255.255.128
-  default-router 172.18.2.254
-  dns-server 8.8.8.8
+ network 172.18.2.128 255.255.255.128
+ default-router 172.18.2.254
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.3.126
 ip dhcp pool POOL-Area-VisitantesP4
-  network 172.18.3.0 255.255.255.128
-  default-router 172.18.3.126
-  dns-server 8.8.8.8
+ network 172.18.3.0 255.255.255.128
+ default-router 172.18.3.126
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.3.254
 ip dhcp pool POOL-Area-VisitantesP3
-  network 172.18.3.128 255.255.255.128
-  default-router 172.18.3.254
-  dns-server 8.8.8.8
+ network 172.18.3.128 255.255.255.128
+ default-router 172.18.3.254
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.4.126
 ip dhcp pool POOL-Area-Directores
-  network 172.18.4.0 255.255.255.128
-  default-router 172.18.4.126
-  dns-server 8.8.8.8
+ network 172.18.4.0 255.255.255.128
+ default-router 172.18.4.126
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.4.190
 ip dhcp pool POOL-Area-Seguridad
-  network 172.18.4.128 255.255.255.192
-  default-router 172.18.4.190
-  dns-server 8.8.8.8
+ network 172.18.4.128 255.255.255.192
+ default-router 172.18.4.190
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.4.254
 ip dhcp pool POOL-Area-IoTDirectores
-  network 172.18.4.192 255.255.255.192
-  default-router 172.18.4.254
-  dns-server 8.8.8.8
+ network 172.18.4.192 255.255.255.192
+ default-router 172.18.4.254
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.5.62
 ip dhcp pool POOL-Area-Ventas
-  network 172.18.5.0 255.255.255.192
-  default-router 172.18.5.62
-  dns-server 8.8.8.8
+ network 172.18.5.0 255.255.255.192
+ default-router 172.18.5.62
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.5.126
 ip dhcp pool POOL-Area-Presupuestos
-  network 172.18.5.64 255.255.255.192
-  default-router 172.18.5.126
-  dns-server 8.8.8.8
+ network 172.18.5.64 255.255.255.192
+ default-router 172.18.5.126
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.5.190
 ip dhcp pool POOL-Area-Gestion
-  network 172.18.5.128 255.255.255.192
-  default-router 172.18.5.190
-  dns-server 8.8.8.8
+ network 172.18.5.128 255.255.255.192
+ default-router 172.18.5.190
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.5.222
 ip dhcp pool POOL-Area-ServiciosP3
-  network 172.18.5.192 255.255.255.224
-  default-router 172.18.5.222
-  dns-server 8.8.8.8
+ network 172.18.5.192 255.255.255.224
+ default-router 172.18.5.222
+ dns-server 8.8.8.8
+ 
 
 ip dhcp excluded-address 172.18.5.254
 ip dhcp pool POOL-Area-Servidores
-  network 172.18.5.224 255.255.255.224
-  default-router 172.18.5.254
-  dns-server 8.8.8.8
-
+ network 172.18.5.224 255.255.255.224
+ default-router 172.18.5.254
+ dns-server 8.8.8.8
+ 
 
 !=== Definición de Ruta Estática para sacar todo el tráfico a internet ===
 ip route 0.0.0.0 0.0.0.0 G0/0/1 1

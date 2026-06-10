@@ -109,7 +109,7 @@ description Puerto TRUNK - Enlace hacia S-Pres&VentasP3
 switchport mode trunk
 no shutdown
 
-interface Gig1/0/7
+interface Gig1/0/3
 description Puerto TRUNK - Enlace hacia S-Servicios&Visitantes
 switchport mode trunk
 no shutdown
@@ -122,6 +122,11 @@ no shutdown
 
 interface Gig1/1/3
 description Puerto TRUNK - Enlace hacia S-CoreP4
+switchport mode trunk
+no shutdown
+
+interface Gig1/0/1
+description Puerto TRUNK - Enlace hacia RouterFrontera
 switchport mode trunk
 no shutdown
 
