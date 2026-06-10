@@ -1,0 +1,143 @@
+!===============
+Config Switch S-CoreP3 ============
+!================
+Configuración General =====================
+ 
+enable
+configure terminal
+hostname S-CoreP3
+ 
+no ip domain lookup
+
+banner motd #
+|====== UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED ======|
+|==============================================================|
+|El acceso indebido al sistema será reportado
+|==============================================================|
+#
+ 
+username CEO privilege 15 secret tc2006b
+username CIT privilege 15 secret tc2006b
+ 
+ip domain name Chufani.com.mx
+ 
+crypto key generate rsa
+yes
+1024
+ 
+line console 0
+login local
+exec-timeout 2 0
+logging synchronous
+ 
+line vty 0 1
+login local
+exec-timeout 2 0
+transport input ssh
+logging synchronous
+ 
+!============= Fin de Configuración General =================
+ 
+!=== Parámetros de configuración para manejo de VLANs ====
+ 
+vtp domain Chufani.com.mx
+vtp mode server
+vtp password tc2006b
+
+
+!1) BD de VLANs
+
+vlan 10
+  name IoTDiseno
+
+vlan 20
+  name IoTOficina
+
+vlan 30
+  name Renders
+
+vlan 40
+  name AreaDisenoA
+
+vlan 50
+  name AreaDisenoB
+
+vlan 60
+  name VisitantesP1
+
+vlan 70
+  name VisitantesP4
+
+vlan 80
+  name VisitantesP3
+
+vlan 90
+  name Directores
+
+vlan 100
+  name IoTDirectores
+
+vlan 110
+  name Ventas
+
+vlan 120
+  name Presupuestos
+
+vlan 130
+  name Gestion
+
+vlan 140
+  name ServiciosP3
+
+vlan 150
+  name Servidores
+
+ 
+!3) Definición de Truncales 
+interface Gig1/1/2
+description Puerto TRUNK - Enlace hacia Area de Diseño A
+switchport mode trunk
+no shutdown
+
+interface Gig1/1/4
+description Puerto TRUNK - Enlace hacia Area de Diseño B
+switchport mode trunk
+no shutdown
+
+interface Gig1/0/2
+description Puerto TRUNK - Enlace hacia S-Pres&VentasP3
+switchport mode trunk
+no shutdown
+
+interface Gig1/0/3
+description Puerto TRUNK - Enlace hacia S-Servicios&Visitantes
+switchport mode trunk
+no shutdown
+
+interface Gig1/1/1
+description Puerto TRUNK - Enlace hacia S-Servidores
+switchport mode trunk
+no shutdown
+
+
+interface Gig1/1/3
+description Puerto TRUNK - Enlace hacia S-CoreP4
+switchport mode trunk
+no shutdown
+
+interface Gig1/0/1
+description Puerto TRUNK - Enlace hacia RouterFrontera
+switchport mode trunk
+no shutdown
+
+
+!4) Asignación de la IP de Gestión
+interface vlan 911
+  description IP de gestion remota (SSH)
+  ip address 172.18.5.142 255.255.255.192
+  no shutdown
+ 
+! Definición del Gateway por defecto para permitir administración fuera de la subred
+ip default-gateway 172.18.5.190
+ 
+!=============== Fin Config. Switch S-DisBP3 ============
