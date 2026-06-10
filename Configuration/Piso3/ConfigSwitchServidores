@@ -53,7 +53,7 @@ no shutdown
 exit
  
 !3) Definición de Truncales (Puerto 1/1 hacia el Router / Core)
-interface Gig1/0/1
+interface Gig1/1/1
 description Puerto TRUNK - Enlace de subida hacia Router
 switchport mode trunk
 no shutdown
