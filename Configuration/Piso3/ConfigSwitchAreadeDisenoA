@@ -40,7 +40,7 @@ logging synchronous
  
 !=== Parámetros de configuración para manejo de VLANs ====
  
-vtp domain Chufani.org
+vtp domain Chufani.com.mx
 vtp mode client
 vtp password TC2006b
  
