@@ -62,7 +62,7 @@ description Puertos de Acceso - Servers
 switchport mode access
 switchport access vlan 150
 no shutdown
-exit
+
 
 
 !4) Asignación de la IP de Gestión
