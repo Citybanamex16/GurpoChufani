@@ -1,95 +1,79 @@
-!=============== Config Switch Servidores ============
-!=============== Config Switch Servidores ============
-!================ Configuración General ===================
-! Entrar al modo EXEC
+!===============
+Config Switch S-DisBP3 ============
+!================
+Configuración General =====================
+ 
 enable
-
-! Establecer fecha y hora
-! clock set 13:20:00 Jun 1 2026
-
-! Configuración de los parámetros la terminal
 configure terminal
-
-hostname S-Servidores
-
-! Evitar que si existe un error en un comando se active la búsqueda por DNS de la solución
+hostname S-ServidoresP3
+ 
 no ip domain lookup
 
 banner motd #
-
 |====== UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED ======|
 |==============================================================|
-|Please contact the system administrator for any concerns.     |
-|Andrea Iliana Cantú Mayorga A01753419                         |
-|Call 911 for and emergency                                    |
+|El acceso indebido al sistema será reportado
 |==============================================================|
-
 #
-
-! Creación de la BD de cuentas autorizadas para acceder
+ 
 username CEO privilege 15 secret tc2006b
 username CIT privilege 15 secret tc2006b
-
-ip domain name chuffani.com.mx
-
+ 
+ip domain name Chufani.com.mx
+ 
 crypto key generate rsa
 yes
 1024
-
-! Control de acceso por consola y acceso remoto
+ 
 line console 0
-  login local
-  exec-timeout 2
-  logging sync
-
-! Maximo numero de line virtual que se pueden poner son 16
+login local
+exec-timeout 2 0
+logging synchronous
+ 
 line vty 0 2
-  login local
-  exec-timeout 2
-  transport input ssh
-  logging sync
-
-!================ Fin de Configuración General =====================
-
+login local
+exec-timeout 2 0
+transport input ssh
+logging synchronous
+ 
+!============= Fin de Configuración General =================
+ 
 !=== Parámetros de configuración para manejo de VLANs ====
-! Implementar el protocolo VTP
-! vtp domain NAME
-! vtp mode [server | client]
-! vtp password Palabra
-
-vtp domain chuffani.com.mx
+ 
+vtp domain Chufani.com.mx
 vtp mode client
 vtp password TC2006b
-
-! No se crean VLANS
-!1) Creación de VLANs
-
-!2) Asignación de puertos a las VLANs
-!interface range INTERFACE_ID
-!description TEXTO_LIBRE
-!switchport mode access
-!switchport access vlan VID
-!no shutdown
-
-interface range Gig1/0/3-5
-  description Puerto de la VLAN Area de Servidores
-  switchport mode access
-  switchport access vlan 150
-  no shutdown
+ 
+!2) Asignación de puertos a las VLANs (Modo Acceso)
+interface range GigabitEthernet1/0/2-8
+description Puertos de Acceso - Area Disenio B (Nodos y AP)
+switchport mode access
+switchport access vlan 150
+no shutdown
+exit
+ 
+!3) Definición de Truncales (Puerto 1/1 hacia el Router / Core)
+interface Gig1/0/1
+description Puerto TRUNK - Enlace de subida hacia Router
+switchport mode trunk
+no shutdown
+exit
+ 
+!4) Asignación de la IP de Gestión y Reenvío DHCP (Helper Address)
+! Se asigna la primera IP válida del segmento según el VLSM (172.18.1.128/25)
+interface vlan 150
+description IP de gestion remota e interfaz de ayuda DHCP
+ip address 172.18.5.129 255.255.255.224
+no shutdown
 exit
 
 !4) Asignación de la IP de Gestión
 interface vlan 911
   description IP de gestion remota (SSH)
-  ip address 172.18.5.187 255.255.255.192
+  ip address 172.18.5.189 255.255.255.192
   no shutdown
-
-!Puerto TRUNK
-interface Gig1/1/1
-  description Enlace Troncal hacia S-CoreP3
-  switchport trunk encapsulation dot1q
-  switchport mode trunk
-  no shutdown
-exit
-
-ip default-gateway 172.18.5.129
+ 
+! Definición del Gateway por defecto para permitir administración fuera de la subred
+ip default-gateway 172.18.1.254
+ 
+!=============== Fin Config. Switch S-DisBP3 ============
