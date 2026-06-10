@@ -44,6 +44,13 @@ vtp domain Chufani.com.mx
 vtp mode client
 vtp password tc2006b
 
+!3) Definición de Truncales (Enlace hacia el switch S-CoreP4)
+interface GigabitEthernet1/0/24
+description Puerto TRUNK - Enlace hacia S-CoreP4
+switchport mode trunk
+no shutdown
+exit
+
 !2) Asignación de puertos a las VLANs
  
 interface range GigabitEthernet1/0/1-13
@@ -59,14 +66,7 @@ switchport mode access
 switchport access vlan 110
 no shutdown
 exit
- 
-!3) Definición de Truncales (Enlace hacia el switch S-CoreP4)
-interface GigabitEthernet1/0/24
-description Puerto TRUNK - Enlace hacia S-CoreP4
-switchport mode trunk
-no shutdown
-exit
- 
+
 !4) Asignación de la IP de Gestión
 interface vlan 911
 description IP de gestion remota ssh
