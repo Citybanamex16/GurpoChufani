@@ -42,7 +42,7 @@ logging synchronous
  
 vtp domain Chufani.com.mx
 vtp mode client
-vtp password TC2006b
+vtp password tc2006b
  
 !2) Asignación de puertos a las VLANs (Modo Acceso)
 interface range GigabitEthernet1/0/2-8
