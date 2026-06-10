@@ -42,7 +42,7 @@ logging synchronous
  
 vtp domain Chufani.com.mx
 vtp mode client
-vtp password TC2006b
+vtp password tc2006b
 
 !3) Definición de Truncales (Enlace de subida corregido hacia el S-Central)
 interface GigabitEthernet1/0/1
@@ -84,10 +84,10 @@ exit
 !4) Asignación de la IP de Gestión
 interface vlan 911
 description IP de gestion remota ssh
-ip address 172.18.5.130 255.255.255.192
+ip address 172.18.5.130 255.255.255.224
 no shutdown
 exit
  
-ip default-gateway 172.18.5.190
+ip default-gateway 172.18.5.158
  
 !=============== Fin Config. Switch S-Pres&VentasP3 ============
