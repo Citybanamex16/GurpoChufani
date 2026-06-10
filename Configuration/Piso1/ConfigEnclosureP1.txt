@@ -44,6 +44,12 @@ vtp domain Chufani.com.mx
 vtp mode client
 vtp password tc2006b
 
+!3) Definición de Truncales (Son fibra optica)
+interface Gig1/1/1
+description Puerto TRUNK - Enlace de subida hacia ServidoresP3
+switchport mode trunk
+no shutdown
+exit
  
 !2) Asignación de puertos a las VLANs (Modo Acceso)
 
@@ -58,14 +64,6 @@ description Puertos de Acceso - VisitantesP1
 switchport mode access
 switchport access vlan 60
 no shutdown
-
- 
-!3) Definición de Truncales (Son fibra optica)
-interface Gig1/1/1
-description Puerto TRUNK - Enlace de subida hacia ServidoresP3
-switchport mode trunk
-no shutdown
-exit
 
 !4) Asignación de la IP de Gestión
 interface vlan 911

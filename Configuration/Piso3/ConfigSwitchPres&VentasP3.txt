@@ -44,6 +44,13 @@ vtp domain Chufani.com.mx
 vtp mode client
 vtp password TC2006b
 
+!3) Definición de Truncales (Enlace de subida corregido hacia el S-Central)
+interface GigabitEthernet1/0/1
+description Puerto TRUNK - Enlace hacia Switch Central
+switchport mode trunk
+no shutdown
+exit
+
 !2) Asignación de puertos a las VLANs
  
 interface GigabitEthernet1/0/24
@@ -71,13 +78,6 @@ interface range GigabitEthernet1/0/12-21
 description Acceso - Area de Ventas
 switchport mode access
 switchport access vlan 120
-no shutdown
-exit
- 
-!3) Definición de Truncales (Enlace de subida corregido hacia el S-Central)
-interface GigabitEthernet1/0/1
-description Puerto TRUNK - Enlace hacia Switch Central
-switchport mode trunk
 no shutdown
 exit
  
