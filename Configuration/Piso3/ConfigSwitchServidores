@@ -70,10 +70,10 @@ exit
 !4) Asignación de la IP de Gestión
 interface vlan 911
   description IP de gestion remota (SSH)
-  ip address 172.18.5.189 255.255.255.192
+  ip address 172.18.5.133 255.255.255.192
   no shutdown
  
 ! Definición del Gateway por defecto para permitir administración fuera de la subred
-ip default-gateway 172.18.1.254
+ip default-gateway 172.18.5.190
  
 !=============== Fin Config. Switch S-DisBP3 ============

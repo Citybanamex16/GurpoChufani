@@ -58,22 +58,14 @@ description Puerto TRUNK - Enlace de subida hacia Router
 switchport mode trunk
 no shutdown
 exit
- 
-!4) Asignación de la IP de Gestión y Reenvío DHCP (Helper Address)
-! Se asigna la primera IP válida del segmento según el VLSM (172.18.1.128/25)
-interface vlan 50
-description IP de gestion remota e interfaz de ayuda DHCP
-ip address 172.18.2.1 255.255.255.128
-no shutdown
-exit
 
 !4) Asignación de la IP de Gestión
 interface vlan 911
   description IP de gestion remota (SSH)
-  ip address 172.18.5.189 255.255.255.192
+  ip address 172.18.5.130 255.255.255.192
   no shutdown
  
 ! Definición del Gateway por defecto para permitir administración fuera de la subred
-ip default-gateway 172.18.1.254
+ip default-gateway 172.18.5.190
  
 !=============== Fin Config. Switch S-DisBP3 ============
