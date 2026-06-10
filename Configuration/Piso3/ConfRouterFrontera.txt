@@ -260,7 +260,7 @@ ip dhcp pool POOL-Area-Servidores
  dns-server 8.8.8.8
 
 !=== Definición de Ruta Estática para sacar todo el tráfico a internet ===
-ip route 0.0.0.0 0.0.0.0 G0/0/1 1
+ip route 0.0.0.0 0.0.0.0 G0/0/1 
 ip route 0.0.0.0 0.0.0.0 S0/1/0 50
 
 !============  Fin de Config Router ===============
