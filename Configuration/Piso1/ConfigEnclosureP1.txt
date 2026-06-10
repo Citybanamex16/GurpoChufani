@@ -1,0 +1,79 @@
+!===============
+Config Switch Enclosure-P1 ============
+!================
+Configuración General =====================
+ 
+enable
+configure terminal
+hostname Enclosure-P1
+ 
+no ip domain lookup
+
+banner motd #
+|====== UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED ======|
+|==============================================================|
+|El acceso indebido al sistema será reportado
+|==============================================================|
+#
+ 
+username CEO privilege 15 secret tc2006b
+username CIT privilege 15 secret tc2006b
+ 
+ip domain name Chufani.com.mx
+ 
+crypto key generate rsa
+yes
+1024
+ 
+line console 0
+login local
+exec-timeout 2 0
+logging synchronous
+ 
+line vty 0 1
+login local
+exec-timeout 2 0
+transport input ssh
+logging synchronous
+ 
+!============= Fin de Configuración General =================
+ 
+!=== Parámetros de configuración para manejo de VLANs ====
+ 
+vtp domain Chufani.com.mx
+vtp mode client
+vtp password tc2006b
+
+ 
+!2) Asignación de puertos a las VLANs (Modo Acceso)
+
+interface range GigabitEthernet1/0/1-14
+description Puertos de Acceso - Seguridad
+switchport mode access
+switchport access vlan 100
+no shutdown
+
+interface range GigabitEthernet1/0/15
+description Puertos de Acceso - VisitantesP1
+switchport mode access
+switchport access vlan 60
+no shutdown
+
+ 
+!3) Definición de Truncales (Son fibra optica)
+interface Gig1/1/1
+description Puerto TRUNK - Enlace de subida hacia ServidoresP3
+switchport mode trunk
+no shutdown
+exit
+
+!4) Asignación de la IP de Gestión
+interface vlan 911
+  description IP de gestion remota (SSH)
+  ip address 172.18.5.134 255.255.255.192
+  no shutdown
+ 
+! Definición del Gateway por defecto para permitir administración fuera de la subred
+ip default-gateway 172.18.5.190
+ 
+!=============== Fin Config. Switch S-DisBP3 ============

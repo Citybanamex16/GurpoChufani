@@ -1,7 +1,7 @@
 !============== Configuración del Router =============
 !======================= ITESM-CQ =====================
-!Autor: Andrea Iliana Cantú Mayorga
-!Fecha: 6 de junio del 2026
+!Autor: EQ-2
+!Fecha: 8 de junio del 2026
 !Objetivo: Cambiar la velocidad de internet de 1Gb a 10Gb
 !======================================================
 
@@ -10,7 +10,7 @@
 enable
 
 ! Establecer fecha y hora
-! clock set 13:20:00 Jun 1 2026
+! clock set 13:20:00 Jun 8 2026
 
 ! Configuración de los parámetros la terminal
 configure terminal
@@ -35,7 +35,7 @@ banner motd #
 username CEO privilege 15 secret tc2006b
 username CIT privilege 15 secret tc2006b
 
-ip domain name Peleteros.com.mx
+ip domain name grupochufani.org
 
 crypto key generate rsa
 yes
@@ -44,124 +44,128 @@ yes
 ! Control de acceso por consola y acceso remoto
 line console 0
   login local
-  exec-timeout 2
+  exec-timeout 5
   logging sync
 
-! Maximo numero de line virtual que se pueden poner son 16
-line vty 0 2
+! 2 (CEO n CIT)
+line vty 0 1
   login local
-  exec-timeout 2
+  exec-timeout 5
   transport input ssh
   logging sync
 
 !================ Fin de Configuración General =====================
 
 !============== Configuración de Interfaces Físicas ==============
-!interface S0/0/1
-  !description Interfaz de interconnexion con el ISP secundario
-  !ip address 172.16.255.250 255.255.255.252
-  !no shutdown
+interface S0/1/0
+  description Interfaz de interconnexion con el ISP Secundario
+  ip address 172.16.255.250 255.255.255.252
+  no shutdown
 
-!interface G1/0/2
-  !description Interfaz de interconnexion con el ISP primario
-  !ip address 192.168.20.254 255.255.255.252
-  !no shutdown
+interface G0/0/1
+  description Interfaz de interconnexion con el ISP Primario
+  ip address 192.168.20.254 255.255.255.252
+  no shutdown
 
 !=========== Configuración de Sub Interfaces ================
-! VLAN IoT
-interface G0/0/1.10
+
+! IoT Diseño
+interface G0/0/0.10
   description Sub Interfaz para la VLAN IoT Diseno
   encapsulation dot1q 10
-  ip address 172.18.0.126  255.255.255.128
+  ip address 172.18.0.126 255.255.255.128
 
-interface G0/0/1.20
+! IoT Oficina
+interface G0/0/0.20
   description Sub Interfaz para la VLAN IoT Oficina
   encapsulation dot1q 20
-  ip address 172.18.0.254  255.255.255.128
+  ip address 172.18.0.254 255.255.255.128
 
-! Area de Diseno
-interface G0/0/1.30
-  description Sub Interfaz para la VLAN Area Diseno C
+! Area Renders
+interface G0/0/0.30
+  description Sub Interfaz para la VLAN Area Renders
   encapsulation dot1q 30
-  ip address 172.18.1.126  255.255.255.128
+  ip address 172.18.1.126 255.255.255.128
 
-
-interface G0/0/1.40
+! Area Diseño A
+interface G0/0/0.40
   description Sub Interfaz para la VLAN Area Diseno A
   encapsulation dot1q 40
   ip address 172.18.1.254 255.255.255.128
 
-
-interface G0/0/1.50
+! Area Diseño B
+interface G0/0/0.50
   description Sub Interfaz para la VLAN Area Diseno B
   encapsulation dot1q 50
   ip address 172.18.2.126 255.255.255.128
 
-! Area de Visitantes 
-interface G0/0/1.60
+! Visitantes P1
+interface G0/0/0.60
   description Sub Interfaz para la VLAN Visitantes P1
   encapsulation dot1q 60
   ip address 172.18.2.254 255.255.255.128
 
-interface G0/0/1.70
+! Visitantes P4
+interface G0/0/0.70
   description Sub Interfaz para la VLAN Visitantes P4
   encapsulation dot1q 70
   ip address 172.18.3.126 255.255.255.128
 
-interface G0/0/1.80
+! Visitantes P3
+interface G0/0/0.80
   description Sub Interfaz para la VLAN Visitantes P3
   encapsulation dot1q 80
   ip address 172.18.3.254 255.255.255.128
 
-! Area de Directores 
-interface G0/0/1.90
+! Directores 
+interface G0/0/0.90
   description Sub Interfaz para la VLAN Directores
   encapsulation dot1q 90
   ip address 172.18.4.126 255.255.255.128
 
-! Area de Seguridad
-interface G0/0/1.100
+! Seguridad
+interface G0/0/0.100
   description Sub Interfaz para la VLAN Seguridad
   encapsulation dot1q 100
-  ip address 172.18.4.190  255.255.255.192
+  ip address 172.18.4.190 255.255.255.192
 
-! Area de IoT Directores
-interface G0/0/1.110
+! IoT Directores
+interface G0/0/0.110
   description Sub Interfaz para la VLAN IoT Directores
   encapsulation dot1q 110
-  ip address 172.18.4.254  255.255.255.192
+  ip address 172.18.4.254 255.255.255.192
 
-!Area de Ventas
-interface G0/0/1.120
+! Ventas
+interface G0/0/0.120
   description Sub Interfaz para la VLAN Ventas
   encapsulation dot1q 120
   ip address 172.18.5.62 255.255.255.192
 
-! Area de presupuestos
-interface G0/0/1.130
+! Area de Presupuestos
+interface G0/0/0.130
   description Sub Interfaz para la VLAN Presupuestos
   encapsulation dot1q 130
-  ip address 172.18.5.126  255.255.255.192
+  ip address 172.18.5.126 255.255.255.192
+
+! Servicios P3
+interface G0/0/0.140
+  description Sub Interfaz para la VLAN Servicios P3
+  encapsulation dot1q 140
+  ip address 172.18.5.222 255.255.255.224
+
+! Servidores
+interface G0/0/0.150
+  description Sub Interfaz para la VLAN Servidores
+  encapsulation dot1q 150
+  ip address 172.18.5.254 255.255.255.224
 
 ! Area de Gestion
-interface G0/0/1.911
+interface G0/0/0.911
   description Sub Interfaz para la VLAN Gestión
   encapsulation dot1q 911
   ip address 172.18.5.190 255.255.255.192
 
-!Area de Servicios
-interface G0/0/1.150
-  description Sub Interfaz para la VLAN ServiciosP3
-  encapsulation dot1q 150
-  ip address 172.18.5.254 255.255.255.192
-
-!Area de Servidores
-interface G0/0/1.160
-  description Sub Interfaz para la VLAN Servidores
-  encapsulation dot1q 160
-  ip address 172.18.6.30 255.255.255.224
-
-interface G0/0/1
+interface G0/0/0
   no shutdown
 
 !============== Configuración del servicio DHCPs ================
@@ -178,7 +182,7 @@ ip dhcp pool POOL-IoTOficina
   dns-server 8.8.8.8
 
 ip dhcp excluded-address 172.18.1.126
-ip dhcp pool POOL-Area-disenoC
+ip dhcp pool POOL-Area-Renders
   network 172.18.1.0 255.255.255.128
   default-router 172.18.1.126
   dns-server 8.8.8.8
@@ -249,25 +253,21 @@ ip dhcp pool POOL-Area-Gestion
   default-router 172.18.5.190
   dns-server 8.8.8.8
 
-ip dhcp excluded-address 172.18.5.254
+ip dhcp excluded-address 172.18.5.222
 ip dhcp pool POOL-Area-ServiciosP3
-  network 172.18.5.192 255.255.255.192
-  default-router 172.18.5.254
+  network 172.18.5.192 255.255.255.224
+  default-router 172.18.5.222
   dns-server 8.8.8.8
 
-ip dhcp excluded-address 172.18.6.30
+ip dhcp excluded-address 172.18.5.254
 ip dhcp pool POOL-Area-Servidores
-  network 172.18.6.0 255.255.255.224
-  default-router 172.18.6.30
+  network 172.18.5.224 255.255.255.224
+  default-router 172.18.5.254
   dns-server 8.8.8.8
 
 
 !=== Definición de Ruta Estática para sacar todo el tráfico a internet ===
-! Va hacer una ruta secundaria
-! Primero va hacer la ruta secundaria
-! ip route 0.0.0.0 0.0.0.0 [IP_DEL_ROUTER_ALESTRA]
-! ip route 0.0.0.0 0.0.0.0 [IP_DEL_ROUTER_ATT] 50
-
-
+ip route 0.0.0.0 0.0.0.0 G0/0/1 1
+ip route 0.0.0.0 0.0.0.0 S0/1/0 50
 
 !============  Fin de Config Router ===============
