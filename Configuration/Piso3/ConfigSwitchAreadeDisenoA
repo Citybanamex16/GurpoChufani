@@ -44,6 +44,13 @@ vtp domain Chufani.com.mx
 vtp mode client
 vtp password tc2006b
 
+!3) Definición de Truncales (Puerto 1/1/1 hacia el Router / Core)
+interface GigabitEthernet1/1/1
+description Puerto TRUNK - Enlace de subida hacia Router
+switchport mode trunk
+no shutdown
+exit
+
 !2) Asignación de puertos a las VLANs (Modo Acceso)
 interface range GigabitEthernet1/0/1-17
 description Puertos de Acceso - Area Disenio A (Nodos y AP)
@@ -51,13 +58,7 @@ switchport mode access
 switchport access vlan 40
 no shutdown
 exit
- 
-!3) Definición de Truncales (Puerto 1/1/1 hacia el Router / Core)
-interface GigabitEthernet1/1/1
-description Puerto TRUNK - Enlace de subida hacia Router
-switchport mode trunk
-no shutdown
-exit
+
  
 !4) Asignación de la IP de Gestión y Reenvío DHCP (Helper Address)
 ! Se asigna la primera IP válida del segmento según el VLSM (172.18.1.128/25)
