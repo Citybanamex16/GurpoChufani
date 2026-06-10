@@ -19,7 +19,7 @@ banner motd #
 username CEO privilege 15 secret tc2006b
 username CIT privilege 15 secret tc2006b
  
-ip domain name Peleteros.com.mx
+ip domain name Chufani.com.mx
  
 crypto key generate rsa
 yes
@@ -40,7 +40,7 @@ logging synchronous
  
 !=== Parámetros de configuración para manejo de VLANs ====
  
-vtp domain Peleteros.com.mx
+vtp domain Chufani.com.mx
 vtp mode client
 vtp password tc2006b
 
