@@ -42,7 +42,7 @@ logging synchronous
  
 vtp domain Chufani.com.mx
 vtp mode client
-vtp password TC2006b
+vtp password tc2006b
 
 !2) Asignación de puertos a las VLANs (Modo Acceso)
 interface range GigabitEthernet1/0/1-17
@@ -61,9 +61,9 @@ exit
  
 !4) Asignación de la IP de Gestión y Reenvío DHCP (Helper Address)
 ! Se asigna la primera IP válida del segmento según el VLSM (172.18.1.128/25)
-interface vlan 40
+interface vlan 911
 description IP de gestion remota e interfaz de ayuda DHCP
-ip address 172.18.1.129 255.255.255.128
+ip address 172.18.1.129 255.255.255.192
 no shutdown
 exit
  
