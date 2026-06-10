@@ -47,7 +47,7 @@ vtp password tc2006b
 
 !1) BD de VLANs
 
-1) Creación de VLANs
+! 1) Creación de VLANs
 vlan 10
   name IoTDiseno
 
@@ -89,11 +89,6 @@ vlan 130
 
 vlan 140
   name Servicios P3
-
-vlan 140
-  name Servidores
-
-
  
 !3) Definición de Truncales 
 interface Gig1/1/2

@@ -101,10 +101,6 @@ vlan 130
 vlan 140
   name ServiciosP3
 
-vlan 140
-  name Servidores
-
-
 !No se asigna
 !2) Asignación de puertos a las VLANs
 !interface range INTERFACE_ID
