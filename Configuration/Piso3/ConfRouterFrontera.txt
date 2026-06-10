@@ -238,21 +238,21 @@ ip dhcp pool POOL-Area-Presupuestos
  default-router 172.18.5.126
  dns-server 8.8.8.8
  
-! Pool Gestión (Corregido a /27. Red: .128, Útiles: .129 a .158)
+! Pool Gestión 
 ip dhcp excluded-address 172.18.5.158
 ip dhcp pool POOL-Area-Gestion
  network 172.18.5.128 255.255.255.224
  default-router 172.18.5.158
  dns-server 8.8.8.8
  
-! Pool Servicios P3 (Corregido a /27. Red: .160, Útiles: .161 a .190)
+! Pool Servicios P3 
 ip dhcp excluded-address 172.18.5.190
 ip dhcp pool POOL-Area-ServiciosP3
  network 172.18.5.160 255.255.255.224
  default-router 172.18.5.190
  dns-server 8.8.8.8
  
-! Pool Servidores (Corregido a /27. Red: .192, Útiles: .193 a .222)
+! Pool Servidores 
 ip dhcp excluded-address 172.18.5.222
 ip dhcp pool POOL-Area-Servidores
  network 172.18.5.192 255.255.255.224
