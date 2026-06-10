@@ -44,27 +44,6 @@ vtp domain Chufani.com.mx
 vtp mode client
 vtp password TC2006b
 
-!1) Declaración de VLANs locales para mapeo de puertos
-vlan 10
-name IoTDiseño
-exit
-
-vlan 20
-name IoTOficina
-exit
-
-vlan 120
-name Ventas
-exit
-
-vlan 130
-name Presupuestos
-exit
-
-vlan 911
-name Gestion
-exit
- 
 !2) Asignación de puertos a las VLANs
  
 interface GigabitEthernet1/0/24
