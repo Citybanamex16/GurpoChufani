@@ -30,7 +30,7 @@ login local
 exec-timeout 2 0
 logging synchronous
  
-line vty 0 2
+line vty 0 1
 login local
 exec-timeout 2 0
 transport input ssh
