@@ -51,6 +51,12 @@ switchport mode trunk
 no shutdown
 exit 
 
+interface Gig1/0/24
+description Puerto TRUNK - Enlace de subida hacia Directores
+switchport mode trunk
+no shutdown
+exit 
+
 !2) Asignación de puertos a las VLANs (Modo Acceso)
 interface range GigabitEthernet1/0/2-18
 description Puertos de Acceso - Area Renders
