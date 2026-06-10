@@ -44,19 +44,6 @@ vtp domain Peleteros.com.mx
 vtp mode client
 vtp password tc2006b
 
-!1) Declaración de VLANs locales para mapeo de puertos
-vlan 90
-name Directores
-exit
-
-vlan 110
-name IoTDirectores
-exit
-
-vlan 911
-name Gestion
-exit
- 
 !2) Asignación de puertos a las VLANs
  
 interface range GigabitEthernet1/0/1-13
