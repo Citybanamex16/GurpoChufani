@@ -14,16 +14,11 @@ hostname R-Frontera
 no ip domain lookup
 
 banner motd #
-
 |====== UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED ======|
 |==============================================================|
-|Please contact the system administrator for any concerns.      |
-|Andrea Iliana Cantú Mayorga A01753419                         |
-|                                                              |
+|El acceso indebido al sistema será reportado
 |==============================================================|
-
 #
-
 username CEO privilege 15 secret tc2006b
 username CIT privilege 15 secret tc2006b
 
